@@ -6,17 +6,18 @@
 
 it's a graphical user interface built using [Dear PyGui Python GUI Framework](https://pypi.org/project/dearpygui/) that lets you keep track of your python scripts for personal use or showcase by loading and grouping them into categories. 
 
-You can choose a name for your categories and scripts.
+You can 
 
 <h3>Features:</h3>
 
-1. Categorize all scripts in groups
-2. Add multiple scripts in each group
-3. Delete groups/scripts that are not needed
-4. 3 different view modes : Flat, categorized by group, categorized by utility
-5. Edit all the script details after the script has been added 
-6. Run scripts one at a time
-9. Save your dashboard and open it later
+1. choose a name for your categories and scripts.
+2. Categorize all scripts in groups
+3. Add multiple scripts in each group
+4. Delete groups/scripts that are not needed
+5. 3 different view modes : Flat, categorized by group, categorized by utility
+6. Edit all the script details after the script has been added 
+7. Run scripts one at a time
+8. Save your dashboard and open it later
 
 <H3>Instructions</H3>
 
