@@ -140,7 +140,7 @@ with dpg.window(tag= "Main Window", pos = (0,0),  no_resize = False) as win1:
     dpg.add_input_text(default_value="", hint="Folder path",width=360, pos= (20,670), tag= 'folder', readonly = True)
     dpg.add_input_text(default_value="", hint="Script path",width=360, pos= (20,700), tag= 'f_path', readonly = True)
 
-    dpg.add_input_text(default_value="", hint="Search Keyword- RFU",width=360, pos= (980,640), tag= 'search', callback = search_kw)
+    dpg.add_input_text(default_value="", hint="Search Keyword",width=360, pos= (980,640), tag= 'search', callback = search_kw)
 
 dpg.bind_item_theme(win1, win1_theme)
 dpg.bind_item_font(win1, regular_font)
