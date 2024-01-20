@@ -82,7 +82,7 @@ def add_script_ui():
     a= dpg.get_value('scrnm')
     b= dpg.get_value('prjfol')
     c= dpg.get_value('scrpath')
-    d= dpg.get_value('icopath')
+    d= '' # dpg.get_value('icopath')
     util = dpg.get_value('sel_utl')
     grp = dpg.get_value('sel_gr')
 
@@ -176,7 +176,7 @@ def enable_Edit_window():
     dpg.configure_item("scrnm", default_value = ls[0] , readonly = True,)
     dpg.configure_item("prjfol",  default_value = ls[1] )
     dpg.configure_item("scrpath", default_value = ls[2])
-    dpg.configure_item("icopath", default_value = ls[3] )
+    # dpg.configure_item("icopath", default_value = ls[3] )
     dpg.configure_item("sel_utl", default_value =ls[4] , items=utility_tags)
     dpg.configure_item("sel_gr", default_value =ls[5] , items=groups)
 
@@ -191,7 +191,7 @@ def Reset_addedit():
     dpg.configure_item("scrnm", default_value = '', readonly = False )
     dpg.configure_item("prjfol",  default_value = '' )
     dpg.configure_item("scrpath", default_value = '')
-    dpg.configure_item("icopath", default_value = '' )
+    # dpg.configure_item("icopath", default_value = '' )
     dpg.configure_item("sel_gr", default_value ="" )
     dpg.configure_item("sel_utl", default_value ="" )
     dpg.configure_item("addscrpt_win", show=False)
@@ -282,7 +282,7 @@ def Edit_ok():
     scrnm = script_details [script_selection_index ] [0]
     b= dpg.get_value('prjfol')
     c= dpg.get_value('scrpath')
-    d= dpg.get_value('icopath')
+    d= "" # dpg.get_value('icopath')
     util = dpg.get_value('sel_utl')
     grp = dpg.get_value('sel_gr')
 

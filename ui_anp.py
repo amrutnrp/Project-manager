@@ -26,18 +26,33 @@ d()
 dpg.create_context()
 with dpg.theme() as win1_theme:
     with dpg.theme_component(dpg.mvAll):
-        dpg.add_theme_color(dpg.mvThemeCol_TextDisabled, (143, 143, 143), category=dpg.mvThemeCat_Core)
-        dpg.add_theme_color(dpg.mvThemeCol_Separator, (127, 127, 127), category=dpg.mvThemeCat_Core)
-
-        dpg.add_theme_style(dpg.mvStyleVar_FrameRounding, 5, category=dpg.mvThemeCat_Core)
-        dpg.add_theme_style(dpg.mvStyleVar_WindowTitleAlign, 0.5, category=dpg.mvThemeCat_Core)
-        dpg.add_theme_style(dpg.mvStyleVar_WindowRounding, 5, category=dpg.mvThemeCat_Core)
-        dpg.add_theme_style(dpg.mvStyleVar_FrameBorderSize, 0, category=dpg.mvThemeCat_Core)
-        dpg.add_theme_style(dpg.mvStyleVar_ChildBorderSize, 0, category=dpg.mvThemeCat_Core)
-        dpg.add_theme_style(dpg.mvStyleVar_WindowTitleAlign, 0.5, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_MenuBarBg, (200,200,200), category=dpg.mvThemeCat_Core) #menubar
+        dpg.add_theme_color(dpg.mvThemeCol_Header, (131, 180, 215), category=dpg.mvThemeCat_Core)
+        
+        dpg.add_theme_color(dpg.mvThemeCol_WindowBg, (143, 143, 143), category=dpg.mvThemeCat_Core) # main window
+        dpg.add_theme_color(dpg.mvThemeCol_Text, (0, 0, 0), category=dpg.mvThemeCat_Core)
+        dpg.add_theme_style(dpg.mvStyleVar_FrameRounding, 15, category=dpg.mvThemeCat_Core)
+        
+        dpg.add_theme_color(dpg.mvThemeCol_Button, (200,200,200), category=dpg.mvThemeCat_Core)    # buttons
+        dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered, (230,230,230) , category=dpg.mvThemeCat_Core)
+        
+        dpg.add_theme_color(dpg.mvThemeCol_FrameBg, (230,230,230), category=dpg.mvThemeCat_Core)   # search 
+        dpg.add_theme_color(dpg.mvThemeCol_TextSelectedBg, (131, 180, 215), category=dpg.mvThemeCat_Core)
+        
+        dpg.add_theme_color(dpg.mvThemeCol_Border, (90,90,90), category=dpg.mvThemeCat_Core) # border
+        dpg.add_theme_color(dpg.mvThemeCol_PopupBg, (143, 143, 143), category=dpg.mvThemeCat_Core) # add/edit/del window
+        
 with dpg.font_registry() as win1_font_registry:
     regular_font = dpg.add_font('fonts/glacial_font.otf', 21)
 
+with dpg.theme() as disp_theme:
+    with dpg.theme_component(dpg.mvAll):
+        dpg.add_theme_color(dpg.mvThemeCol_WindowBg, (230,230,230),           category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_Text, (0, 0, 0),                   category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_Border, (150,150,150),             category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_ScrollbarBg, (192, 179, 197),      category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_ScrollbarGrab, (137, 129, 129),    category=dpg.mvThemeCat_Core)
+        
 #+======================================= styling declaration done ========================================
 
 def browse_n_fill(sender):
@@ -54,7 +69,7 @@ def browse_n_fill(sender):
 
 
 
-with dpg.window(tag= "addscrpt_win", pos = (0,0),  no_resize = False, show= False, no_title_bar=True, modal=True) as win2:
+with dpg.window(tag= "addscrpt_win", pos = (0,0),  no_resize = True, show= False, no_title_bar=True, modal=True) as win2:
     dpg.add_spacer( height=10)
     with dpg.group(horizontal=True):
         dpg.add_input_text(default_value="", hint="Script name",width=290, on_enter=True, tag= 'scrnm')
@@ -71,21 +86,22 @@ with dpg.window(tag= "addscrpt_win", pos = (0,0),  no_resize = False, show= Fals
     with dpg.group(horizontal=True):
         dpg.add_combo(("1","2"), default_value ="", tag= 'sel_gr', width=210)
         dpg.add_combo(("1","2"), default_value ="", tag= 'sel_utl', width=210)
-    with dpg.group(horizontal=True):
-        icopath   = dpg.add_input_text(default_value="", hint="Icon path",width=290, on_enter=True,tag= 'icopath')
-        icopath_b = dpg.add_button(label= "Browse thumbnail", width=150,callback = browse_n_fill)
+    # with dpg.group(horizontal=True):
+        # icopath   = dpg.add_input_text(default_value="", hint="Icon path",width=290, on_enter=True,tag= 'icopath')
+        # icopath_b = dpg.add_button(label= "Browse thumbnail", width=150,callback = browse_n_fill)
     dpg.add_spacer( height=10)
-    with dpg.drawlist(width=440, height=240):  # or you could use dpg.add_drawlist and set parents manually
-        dpg.draw_polygon(points=[[1,1], [439,1], [439,238], [1,238], [1,1]], color=[255,0,0],thickness=5 )
-    dpg.add_spacer( height=10)
+    # with dpg.drawlist(width=440, height=240):  # or you could use dpg.add_drawlist and set parents manually
+        # dpg.draw_polygon(points=[[1,1], [439,1], [439,238], [1,238], [1,1]], color=[255,0,0],thickness=5 )
+    # dpg.add_spacer( height=10)
     with dpg.group(horizontal=True):
         dpg.add_button(label = "Add", width=220, callback = add_script_ui, tag = 'addscript_ok')
         dpg.add_button(label= "Cancel", width=220, callback =Reset_addedit )
-dpg.bind_item_font(win2, regular_font)
+
 
 browse_map = { prjfol_b:prjfol,
                scrpath_b : scrpath,
-              icopath_b: icopath}
+              # icopath_b: icopath
+              }
 
 #===================================add script button done =========================
 
@@ -142,8 +158,6 @@ with dpg.window(tag= "Main Window", pos = (0,0),  no_resize = False) as win1:
 
     dpg.add_input_text(default_value="", hint="Search Keyword",width=360, pos= (980,640), tag= 'search', callback = search_kw)
 
-dpg.bind_item_theme(win1, win1_theme)
-dpg.bind_item_font(win1, regular_font)
 
 
 with dpg.window(tag="Dashboard", no_title_bar=True, no_resize=True, no_close=True, no_collapse=True, no_move=True,
@@ -152,12 +166,11 @@ with dpg.window(tag="Dashboard", no_title_bar=True, no_resize=True, no_close=Tru
 with dpg.window(tag="Info", no_title_bar=True, no_resize=True, no_close=True, no_collapse=True, no_move=True,
             pos = (980, 40 ), width=350, height=590) as win5:
     dpg.add_text(label=  "info", tag = 'info',    wrap = 340)
-dpg.bind_item_font(win5, regular_font)
-dpg.bind_item_font(win6, regular_font)
+
 
 #=============================  main layout done  =============================
 
-with dpg.window(tag= "addgrp_win", pos = (0,0),  no_resize = False, show= False, no_title_bar=True, modal=True) as win3:
+with dpg.window(tag= "addgrp_win", pos = (0,0),  no_resize = True, show= False, no_title_bar=True, modal=True) as win3:
     dpg.add_spacer( height=10)
     with dpg.group(horizontal=True):
         dpg.add_input_text(default_value="", hint="Group name",width=290, on_enter=True, tag= 'grpnm')
@@ -166,7 +179,7 @@ with dpg.window(tag= "addgrp_win", pos = (0,0),  no_resize = False, show= False,
     with dpg.group(horizontal=True):
         dpg.add_button(label = "Add", width=220, callback = add_group_ui)
         dpg.add_button(label= "Cancel", width=220, callback = lambda: dpg.configure_item("addgrp_win", show=False) )
-dpg.bind_item_font(win3, regular_font)
+
 
 
 with dpg.window(tag= "delete_win", pos = (0,0),  no_resize = False, show= False, no_title_bar=True, modal=True) as win4:
@@ -179,19 +192,24 @@ with dpg.window(tag= "delete_win", pos = (0,0),  no_resize = False, show= False,
     with dpg.group(horizontal=True):
         dpg.add_button(label = "Delete", width=220, callback = del_items_ui)
         dpg.add_button(label= "Cancel", width=220, callback = lambda: dpg.configure_item("delete_win", show=False) )
-dpg.bind_item_font(win4, regular_font)
+
 
 #=============================  add group and delete window done ==============
 
+dpg.bind_item_theme(win1, win1_theme)  # toolbar
+dpg.bind_item_theme(win2, win1_theme)  # addscript win
+dpg.bind_item_theme(win3, win1_theme)  # add group
+dpg.bind_item_theme(win4, win1_theme)  # del window
+dpg.bind_item_theme(win5, disp_theme)  # readme window
+dpg.bind_item_theme(win6, win1_theme)  # dashboard
 
 
-
-
-
-
-
-
-
+dpg.bind_item_font(win1, regular_font)  # toolbar
+dpg.bind_item_font(win2, regular_font)  # addscript win
+dpg.bind_item_font(win3, regular_font)  # add group
+dpg.bind_item_font(win4, regular_font)  # del window
+dpg.bind_item_font(win5, regular_font)  # readme window
+dpg.bind_item_font(win6, regular_font)  # dashboard
 
 
 
