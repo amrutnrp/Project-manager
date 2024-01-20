@@ -82,7 +82,7 @@ def add_script_ui():
     a= dpg.get_value('scrnm')
     b= dpg.get_value('prjfol')
     c= dpg.get_value('scrpath')
-    d= '' # dpg.get_value('icopath')
+    d= '-' # dpg.get_value('icopath')
     util = dpg.get_value('sel_utl')
     grp = dpg.get_value('sel_gr')
 
@@ -282,7 +282,7 @@ def Edit_ok():
     scrnm = script_details [script_selection_index ] [0]
     b= dpg.get_value('prjfol')
     c= dpg.get_value('scrpath')
-    d= "" # dpg.get_value('icopath')
+    d= "-" # dpg.get_value('icopath')
     util = dpg.get_value('sel_utl')
     grp = dpg.get_value('sel_gr')
 
