@@ -69,7 +69,7 @@ def browse_n_fill(sender):
 
 
 
-with dpg.window(tag= "addscrpt_win", pos = (0,0),  no_resize = True, show= False, no_title_bar=True, modal=True) as win2:
+with dpg.window(tag= "addscrpt_win", pos = (250,30),  no_resize = True, show= False, no_title_bar=True, modal=True) as win2:
     dpg.add_spacer( height=10)
     with dpg.group(horizontal=True):
         dpg.add_input_text(default_value="", hint="Script name",width=290, on_enter=True, tag= 'scrnm')
@@ -89,7 +89,7 @@ with dpg.window(tag= "addscrpt_win", pos = (0,0),  no_resize = True, show= False
     # with dpg.group(horizontal=True):
         # icopath   = dpg.add_input_text(default_value="", hint="Icon path",width=290, on_enter=True,tag= 'icopath')
         # icopath_b = dpg.add_button(label= "Browse thumbnail", width=150,callback = browse_n_fill)
-    dpg.add_spacer( height=10)
+    dpg.add_spacer( height=30)
     # with dpg.drawlist(width=440, height=240):  # or you could use dpg.add_drawlist and set parents manually
         # dpg.draw_polygon(points=[[1,1], [439,1], [439,238], [1,238], [1,1]], color=[255,0,0],thickness=5 )
     # dpg.add_spacer( height=10)
@@ -170,7 +170,7 @@ with dpg.window(tag="Info", no_title_bar=True, no_resize=True, no_close=True, no
 
 #=============================  main layout done  =============================
 
-with dpg.window(tag= "addgrp_win", pos = (0,0),  no_resize = True, show= False, no_title_bar=True, modal=True) as win3:
+with dpg.window(tag= "addgrp_win", pos = (250,30),  no_resize = True, show= False, no_title_bar=True, modal=True) as win3:
     dpg.add_spacer( height=10)
     with dpg.group(horizontal=True):
         dpg.add_input_text(default_value="", hint="Group name",width=290, on_enter=True, tag= 'grpnm')
@@ -182,7 +182,7 @@ with dpg.window(tag= "addgrp_win", pos = (0,0),  no_resize = True, show= False, 
 
 
 
-with dpg.window(tag= "delete_win", pos = (0,0),  no_resize = False, show= False, no_title_bar=True, modal=True) as win4:
+with dpg.window(tag= "delete_win", pos = (250,30),  no_resize = False, show= False, no_title_bar=True, modal=True) as win4:
     dpg.add_spacer( height=10)
     with dpg.group(horizontal=True):
         dpg.add_combo(("Yes", "No", "Maybe"), label="Combo", tag= 'delnm')
