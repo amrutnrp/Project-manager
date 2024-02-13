@@ -210,6 +210,8 @@ def read_db ():
     grp_ls = cursor.fetchall();
     conn.close()
     global groups ,script_details, script_names
+    grp_ls.reverse()
+    scr_ls.reverse()
     groups = [ x[0] for x in grp_ls]
     script_details = list (scr_ls)
     script_names = [ x[0] for x in scr_ls ]
